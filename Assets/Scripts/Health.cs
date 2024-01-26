@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float MAX_HEALTH;
+    [SerializeField] private Animator playerHitAnim;
     private float current_health;
 
     private void Awake()
@@ -23,5 +24,10 @@ public class Health : MonoBehaviour
     {
         get => current_health;
         set => current_health = value;
+    }
+
+    public void PlayPlayerHit()
+    {
+        
     }
 }
