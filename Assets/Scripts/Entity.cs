@@ -12,10 +12,11 @@ public class Entity : MonoBehaviour
     [SerializeField] private float closeRange;
     float distance;
     float speed=0.3f;
+    bool isAttacking = false;
     [SerializeField] private EntityType entityType;
     enum EntityType { MELEE,RANGED}
-    
-   
+    [SerializeField ]private float damage ;
+    [SerializeField] private float attack_speed ;
 
     void Start()
     {
@@ -39,13 +40,26 @@ public class Entity : MonoBehaviour
                
                 transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x,transform.position.y, player.transform.position.z), (Time.deltaTime * speed));
         }
-        if (distance<=closeRange) {
-            Health player_health = player.GetComponent<Health>();
+        if (distance<=closeRange&&!isAttacking) {
 
-            player_health.CurrentHealth = player_health.CurrentHealth - 20;
-
+            DamageToPlayer();
+            Invoke("ResetAttackSpeed", attack_speed);
+            
         }
 
        
+    }
+
+    private void DamageToPlayer() 
+    {
+        Health player_health = player.GetComponent<Health>();
+        Debug.Log(player_health.CurrentHealth);
+        isAttacking = true;
+        player_health.CurrentHealth = player_health.CurrentHealth - damage;
+    }
+
+    private void ResetAttackSpeed()
+    {
+        isAttacking = false;
     }
 }
