@@ -22,7 +22,6 @@ public class CharacterShooting : MonoBehaviour
 
         if (currentGun.current_ammo_count != currentGun.MAX_AMMO_COUNT && Input.GetKeyDown(KeyCode.R))
         {
-            
             currentGun.Reload();
         }
         

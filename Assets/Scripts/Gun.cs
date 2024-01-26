@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
     public int current_ammo_count;
     public float damage;
     public Animator anim;
+    public Sprite ammoSymbol;
     private void Awake()
     {
         current_ammo_count = MAX_AMMO_COUNT;
