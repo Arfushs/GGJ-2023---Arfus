@@ -6,19 +6,21 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public string ID;
-
-    
+    public string text;
+    private ItemChat itemChat;
+    private void Awake()
+    {
+        itemChat = FindObjectOfType<ItemChat>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Inventory playerInv = other.GetComponent<Inventory>();
-                playerInv.GetItem(ID);
-                Destroy(gameObject);
-            }
+               Inventory playerInv = other.GetComponent<Inventory>();
+               itemChat.PlayText(text);
+               playerInv.GetItem(ID);
+               Destroy(gameObject);
         }
     }
 }
