@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("Redball")] 
     [SerializeField] private Transform door1;
     [SerializeField] private Transform door2;
+    [Header("Red Key")]
+    [SerializeField] private Transform door3;
+    [SerializeField] private Transform door4;
 
     public void TriggerEvent(string ID)
     {
@@ -18,6 +21,13 @@ public class GameManager : MonoBehaviour
                 door1.rotation = Quaternion.Euler(new Vector3(0,42.5399933f,0));
                 door2.position = new Vector3(-25.4759998f, -33.7630005f, 33.6870003f) + LevelTransfor.position;;
                 door2.rotation = Quaternion.Euler(new Vector3(0,180f,0));
+                break;
+            
+            case "key_red":
+                door3.position = new Vector3(17.9099998f,-33.7630005f,16.0900002f) + LevelTransfor.position;
+                door3.rotation = Quaternion.Euler(new Vector3(0,180.769989f,0));
+                door4.position = new Vector3(17.1100006f,-33.7630005f,21.6399994f) + LevelTransfor.position;;
+                door4.rotation = Quaternion.Euler(new Vector3(0,31.1999969f,0));
                 break;
         }
     }
