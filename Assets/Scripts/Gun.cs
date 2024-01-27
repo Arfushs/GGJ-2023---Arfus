@@ -13,15 +13,22 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public float range;
     public LayerMask whatIsEnemy;
+
+    [Header("Sound Info")]
+    public AudioClip reloadSound;
+    public AudioClip shootingSound;
+    private AudioSource _audioSource;
     private void Awake()
     {
         current_ammo_count = MAX_AMMO_COUNT;
         anim = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void Reload()
     {
         anim.SetTrigger("reload");
+        _audioSource.PlayOneShot(reloadSound);
         current_ammo_count = MAX_AMMO_COUNT;
     }
 
@@ -29,6 +36,7 @@ public class Gun : MonoBehaviour
     {
         current_ammo_count -= 1;
         anim.SetTrigger("fire");
+        _audioSource.PlayOneShot(shootingSound);
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit raycastHit, range,
                 whatIsEnemy))
         {

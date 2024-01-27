@@ -18,17 +18,19 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
 
+    [Header("Sounds")] 
+    private AudioSource _audioSource;
+
+    public AudioClip walkSound;
+
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
 
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        if(moveDirection!= Vector3.zero && !_audioSource.isPlaying)
+            _audioSource.Play();
+        else
+        {
+            _audioSource.Stop();
+        }
     }
 
     private void GetInput()
