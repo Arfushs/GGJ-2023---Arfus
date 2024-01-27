@@ -8,9 +8,11 @@ public class Item : MonoBehaviour
     public string ID;
     public string text;
     private ItemChat itemChat;
+    private GameManager _gameManager;
     private void Awake()
     {
         itemChat = FindObjectOfType<ItemChat>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -20,6 +22,7 @@ public class Item : MonoBehaviour
                Inventory playerInv = other.GetComponent<Inventory>();
                itemChat.PlayText(text);
                playerInv.GetItem(ID);
+               _gameManager.TriggerEvent(ID);
                Destroy(gameObject);
         }
     }

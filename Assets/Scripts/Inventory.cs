@@ -9,10 +9,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        allItems.Add("key_0",false);
-        allItems.Add("key_1",false);
-        allItems.Add("key_2",false);
-        allItems.Add("key_3",false);
+        allItems.Add("key_red",false);
         allItems.Add("red_ball",false);
         
     }
