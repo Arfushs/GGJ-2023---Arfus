@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     {
         allItems.Add("key_red",false);
         allItems.Add("red_ball",false);
+        allItems.Add("folder",false);
         
     }
 

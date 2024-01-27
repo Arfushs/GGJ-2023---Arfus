@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,17 @@ public class GameManager : MonoBehaviour
     [Header("Red Key")]
     [SerializeField] private Transform door3;
     [SerializeField] private Transform door4;
+    [Header("Folder")] 
+    [SerializeField] private GameObject folderUI;
+    [SerializeField] private Transform wall;
+    private bool isFolderOpen = false;
+
+    private void Update()
+    {
+        if(isFolderOpen && Input.GetKeyDown(KeyCode.E))
+            folderUI.SetActive(false);
+            
+    }
 
     public void TriggerEvent(string ID)
     {
@@ -28,6 +40,12 @@ public class GameManager : MonoBehaviour
                 door3.rotation = Quaternion.Euler(new Vector3(0,180.769989f,0));
                 door4.position = new Vector3(17.1100006f,-33.7630005f,21.6399994f) + LevelTransfor.position;;
                 door4.rotation = Quaternion.Euler(new Vector3(0,31.1999969f,0));
+                break;
+            
+            case "folder":
+                folderUI.SetActive(true);
+                isFolderOpen = true;
+                Destroy(wall.gameObject);
                 break;
         }
     }
