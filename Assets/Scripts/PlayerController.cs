@@ -20,8 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sounds")] 
     private AudioSource _audioSource;
-
-    public AudioClip walkSound;
+    
 
     private void Awake()
     {
@@ -40,11 +39,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-        if(moveDirection!= Vector3.zero && !_audioSource.isPlaying)
-            _audioSource.Play();
+        if(moveDirection!= Vector3.zero)
+            _audioSource.enabled = true;
         else
         {
-            _audioSource.Stop();
+            _audioSource.enabled = false;
         }
     }
 
