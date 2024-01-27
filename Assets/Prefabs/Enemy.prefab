@@ -102,6 +102,8 @@ MonoBehaviour:
   player: {fileID: 0}
   seeRange: 30
   closeRange: 2
+  bloodParticlePref: {fileID: 2558299553488363338, guid: 672c8efb88d5ee142a3dcb57babb0b24,
+    type: 3}
   entityType: 0
   damage: 10
   attack_speed: 0.5

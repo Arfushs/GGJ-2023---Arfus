@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -10,6 +11,8 @@ public class Entity : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float seeRange;
     [SerializeField] private float closeRange;
+    [SerializeField] private ParticleSystem bloodParticlePref;
+    
     float distance;
     float speed=0.3f;
     bool isAttacking = false;
@@ -65,5 +68,10 @@ public class Entity : MonoBehaviour
     private void ResetAttackSpeed()
     {
         isAttacking = false;
+    }
+
+    public void PlayParticle()
+    {
+        Instantiate(bloodParticlePref, transform.position, Quaternion.identity);
     }
 }

@@ -36,6 +36,8 @@ public class Gun : MonoBehaviour
             {
                 Health enemyH = raycastHit.collider.GetComponent<Health>();
                 enemyH.CurrentHealth -= damage;
+                Entity enemy = raycastHit.collider.GetComponent<Entity>();
+                enemy.PlayParticle();
             }
                 
         }
