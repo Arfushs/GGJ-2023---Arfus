@@ -13,10 +13,17 @@ public class Inventory : MonoBehaviour
         allItems.Add("key_1",false);
         allItems.Add("key_2",false);
         allItems.Add("key_3",false);
+        allItems.Add("red_ball",false);
+        
     }
 
     public bool CheckHasItItem(string ID)
     {
         return allItems[ID];
+    }
+
+    public void GetItem(string ID)
+    {
+        allItems[ID] = true;
     }
 }

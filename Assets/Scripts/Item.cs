@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public string ID;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +18,19 @@ public class Item : MonoBehaviour
     void Update()
     {
         
+    }
+    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Inventory playerInv = other.GetComponent<Inventory>();
+                playerInv.GetItem(ID);
+                Destroy(gameObject);
+            }
+        }
     }
 }
