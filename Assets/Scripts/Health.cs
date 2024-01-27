@@ -28,6 +28,6 @@ public class Health : MonoBehaviour
 
     public void PlayPlayerHit()
     {
-        
+        playerHitAnim.SetTrigger("hit");
     }
 }

@@ -10,6 +10,9 @@ public class Gun : MonoBehaviour
     public float damage;
     public Animator anim;
     public Sprite ammoSymbol;
+    public Camera fpsCam;
+    public float range;
+    public LayerMask whatIsEnemy;
     private void Awake()
     {
         current_ammo_count = MAX_AMMO_COUNT;
@@ -26,5 +29,15 @@ public class Gun : MonoBehaviour
     {
         current_ammo_count -= 1;
         anim.SetTrigger("fire");
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out RaycastHit raycastHit, range,
+                whatIsEnemy))
+        {
+            if (raycastHit.collider.CompareTag("Enemy"))
+            {
+                Health enemyH = raycastHit.collider.GetComponent<Health>();
+                enemyH.CurrentHealth -= damage;
+            }
+                
+        }
     }
 }

@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2238200940483578509}
   - component: {fileID: 2160198213444662040}
   - component: {fileID: 1612159902659827399}
-  m_Layer: 0
+  - component: {fileID: 4081250160460537601}
+  - component: {fileID: 3478791844099984966}
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,3 +103,40 @@ MonoBehaviour:
   seeRange: 30
   closeRange: 2
   entityType: 0
+  damage: 10
+  attack_speed: 0.5
+--- !u!65 &4081250160460537601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636615544207103693}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.12, y: 4.45, z: 0.2}
+  m_Center: {x: 0, y: -0.24, z: 0}
+--- !u!114 &3478791844099984966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636615544207103693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d6320227035604b81bf557a2f4795b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX_HEALTH: 0
+  playerHitAnim: {fileID: 0}

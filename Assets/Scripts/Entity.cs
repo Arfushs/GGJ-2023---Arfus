@@ -17,10 +17,10 @@ public class Entity : MonoBehaviour
     enum EntityType { MELEE,RANGED}
     [SerializeField ]private float damage ;
     [SerializeField] private float attack_speed ;
-
-    void Start()
+    private Health enemyHealth;
+    private void Awake()
     {
-        
+        enemyHealth = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -46,6 +46,9 @@ public class Entity : MonoBehaviour
             Invoke("ResetAttackSpeed", attack_speed);
             
         }
+        
+        if(enemyHealth.CurrentHealth <=0)
+            Destroy(gameObject);
 
        
     }
@@ -53,9 +56,10 @@ public class Entity : MonoBehaviour
     private void DamageToPlayer() 
     {
         Health player_health = player.GetComponent<Health>();
-        Debug.Log(player_health.CurrentHealth);
         isAttacking = true;
         player_health.CurrentHealth = player_health.CurrentHealth - damage;
+        player_health.PlayPlayerHit();
+        Debug.Log(player_health.CurrentHealth);
     }
 
     private void ResetAttackSpeed()
