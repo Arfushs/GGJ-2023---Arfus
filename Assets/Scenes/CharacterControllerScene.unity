@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -783121688, guid: cd66be183c281624d96d405fa602c5ee, type: 3}
+  m_Sprite: {fileID: 34937731, guid: 93985ea22ab098e4a8e2b52fb0bde9d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -764,7 +764,7 @@ MonoBehaviour:
   current_ammo_count: 0
   damage: 0
   anim: {fileID: 0}
-  ammoSymbol: {fileID: -783121688, guid: cd66be183c281624d96d405fa602c5ee, type: 3}
+  ammoSymbol: {fileID: 34937731, guid: 93985ea22ab098e4a8e2b52fb0bde9d9, type: 3}
 --- !u!4 &1803168431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7307339522672394261, guid: 8ce3ec3732bed654a81ffaa5efe84217,
